@@ -1,0 +1,12 @@
+<div class="container">
+<div class="jumbotron">
+<h1><%= @restaurant.name.capitalize %></h1>
+<p><div class="well">
+	<strong>Contact No: </strong> <%= @restaurant.phno %><br/>
+	<strong>Category: </strong> <%= @restaurant.category %><br/>
+</div>
+</p>
+</div>
+<%= link_to '<button type="button" class="btn btn-primary">Update</button>'.html_safe, edit_restaurant_path %>
+<%= link_to '<button type="button" class="btn btn-danger">Remove</button>'.html_safe, restaurant_path, method: :delete %>
+</div>

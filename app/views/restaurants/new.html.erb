@@ -1,0 +1,32 @@
+<% provide(:title, 'New restaurant') %>
+<div class="container">
+  <div class="jumbotron">
+    <div class="well"><center><h2>New Restaurant</h2></center></div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <%= form_for(@restaurant) do |f| %>
+        
+        <div class="form-group">
+          <%= f.label :Name  %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :"Contact No" %>
+          <%= f.text_field :phno, class: 'form-control' %>
+        </div>
+
+         <div class="form-group">
+          <%= f.label :Category %>
+          <%= f.select(:category, options_for_select([['Veg'], ['Non Veg'], ['North Indian'], ['South Indian'], ['Deserts']]), {}, {class: "form-control"}) %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "submit", class: "btn btn-primary" %>
+        </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

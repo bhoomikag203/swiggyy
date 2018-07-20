@@ -14,3 +14,35 @@ body{
 	padding: 20px;
 	width: auto;
 }
+
+.card{
+	text: bold italic;
+	color: black;
+}
+
+.cards{
+	
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.card-text{
+	padding-left: 5px;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.container-fluid{
+	margin: 20px;
+	padding: 20px;
+	width: auto;
+}
+
+.row{
+	padding-bottom: 20px;
+}
+
+
+.col-sm-4{
+	padding-bottom: 30px;
+}
