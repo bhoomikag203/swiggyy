@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  root 'restaurants#index'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth'}
   resources :restaurants
 
-  root 'restaurants#index'
+  
 
   get 'static_pages/help'
 
