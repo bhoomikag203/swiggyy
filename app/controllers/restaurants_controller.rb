@@ -12,7 +12,7 @@ class RestaurantsController < ApplicationController
     if @restaurant.save
       redirect_to :action => 'index'
     else
-      flash[:success] = "unable to save"
+      flash.now[:success] = "unable to save"
       render :action => 'new'
     end
   end
@@ -26,10 +26,10 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    @restaurant  = Restaurant.new(restaurant_params)
-    if @restaurant.update_attributes(restaurant_params)
-      redirect_to :action => 'show' , :id => @restaurant
-      flash[:success] = " Updated "
+    @restaurant  = Restaurant.find(params[:id])
+    if @restaurant.update(restaurant_params)
+      redirect_to :action => 'index' , :id => @restaurant
+      flash.now[:success] = " Updated "
     else
       render :action => 'edit'
     end
@@ -37,12 +37,12 @@ class RestaurantsController < ApplicationController
 
   def destroy
     Restaurant.find(params[:id]).destroy
-    flash[:success] = "Restaurant deleted"
+    flash[:success] = "Restaurant removed"
     redirect_to :action => 'index'
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :phno, :category)
+    params.require(:restaurant).permit(:name, :phno, :category, :rating)
   end
 
 end

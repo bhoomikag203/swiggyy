@@ -5,7 +5,7 @@ class CreateRestaurants < ActiveRecord::Migration[5.1]
       t.string :phno
       t.string :category
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
