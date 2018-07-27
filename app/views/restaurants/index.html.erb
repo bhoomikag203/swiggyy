@@ -20,6 +20,8 @@
           </div>
         <% end -%>
    </div>
+   <% if current_user.admin? %>
    <%= link_to '<button type="button" class="btn btn-primary">New</button>'.html_safe, new_restaurant_path %>
+   <% end %>
   </div>
 </body>

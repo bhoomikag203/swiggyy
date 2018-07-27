@@ -46,3 +46,88 @@ body{
 .col-sm-4{
 	padding-bottom: 30px;
 }
+
+
+.devise_form{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 10px;
+	margin: 40px 300px;
+}
+
+.signupbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 0px 4px 4px 0px;
+}
+
+.cancelbtn {
+    background-color:  #f44336;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    opacity: 0.8;
+    border-radius: 4px 0px 0px 4px;
+}
+
+.loginbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius:4px;
+}
+
+.signupbtn:hover {
+    opacity:1;
+} 
+
+.cancelpbtn:hover{
+    opacity:1;
+} 
+
+
+.canclebtn {
+  float: left;
+  width: 50%;
+}
+
+.signupbtn {
+  float: right;
+  width: 50%;
+}
+
+.error_message{
+	color: red;
+}
+
+#error_explanation h2{
+	padding-left:5px;
+	font-size:15px;
+	color:black;
+}
+
+.google_sign_in_button {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 4px;
+}
