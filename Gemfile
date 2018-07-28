@@ -40,6 +40,7 @@ gem 'devise'
 
 # Use Omniauth Google plugin
 gem 'omniauth-google-oauth2'
+gem 'omniauth-oauth2'
 
 # Use ActiveRecord Sessions
 gem 'activerecord-session_store'

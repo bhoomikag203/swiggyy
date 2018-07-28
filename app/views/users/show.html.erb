@@ -1,0 +1,7 @@
+<%= provide(:title, current_user.email[/[^@]+/]) %>
+<div class="sidenav">
+	<%= link_to "Orders", "#" %>
+	<%= link_to "Edit profile", edit_user_registration_path %>
+	<%= link_to "Log out", destroy_user_session_path, :method => :delete%>
+	<%= link_to "Sign out", registration_path(current_user), :method => :delete %>
+</div>
