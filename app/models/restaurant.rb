@@ -3,7 +3,6 @@ class Restaurant < ApplicationRecord
 	validates :phno, presence: true, length: { maximum: 10 }
 	validates :category, presence: true
 	validates :rating, presence: true
-	belongs_to :users
-	has_many :meals
-	enum role: [:user, :restaurant_owner, :admin]
+	has_many :users
+	has_many :meals, dependent: :destroy
 end

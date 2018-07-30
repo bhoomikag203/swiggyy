@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180730072053) do
+ActiveRecord::Schema.define(version: 20180730095635) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 20180730072053) do
     t.datetime "updated_at", null: false
     t.string "provider", limit: 50, default: "", null: false
     t.string "uid", limit: 500, default: "", null: false
-    t.boolean "admin", default: false
     t.string "image"
     t.integer "restaurant_id"
     t.integer "role", default: 0
