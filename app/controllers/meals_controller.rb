@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-	before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 	before_action :set_restaurant
 
     before_action only: [:new, :create] do |m|
@@ -11,7 +11,7 @@ class MealsController < ApplicationController
     end
 
     def show
-    	@meal = Meal.find_by(id: [params :id])
+    	@meal = Meal.find_by(id: params[:id])
     end
 
 	def new
@@ -32,23 +32,20 @@ class MealsController < ApplicationController
   	 def edit
 	    @meal = Meal.find_by(id: params[:id])
 	    @restaurant = @meal.restaurant
-	    authorize @meal
 	end
 
 	def update
 	    @meal = Meal.find_by(id: params[:id])
 	    @restaurant = @meal.restaurant
-	    authorize @meal
 
 	    if @meal.update(meal_params)
-	      redirect_to restaurant_path(@restaurant), notice: 'Meal was successfully updated.'
+	     	redirect_to restaurant_path(@restaurant), :action =>'show', notice: 'Meal was successfully updated.'
 	    end
 	end
 
 	def destroy
 	    @meal = Meal.find_by(id: params[:id])
 	    @restaurant = @meal.restaurant
-	    authorize @meal
 
 	    if @meal.destroy
 	     redirect_to restaurant_path(@restaurant), notice: 'Meal was successfully destroyed.'
@@ -56,10 +53,8 @@ class MealsController < ApplicationController
 
 	end
 
-	private
-
 	def meal_params
-	    params.require(:meal).permit(:name, :price, :image)
+	    params.require(:meal).permit(:name, :price, :image, :category)
 	end
 
 	def set_restaurant

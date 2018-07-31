@@ -1,13 +1,43 @@
+<%= provide(:title, "#{@restaurant.name.capitalize}") %>
 <div class="container">
 <div class="jumbotron">
 <h1><%= @restaurant.name.capitalize %></h1>
-<p><div class="well">
-	<strong>Contact No: </strong> <%= @restaurant.phno %><br/>
-	<strong>Category: </strong> <%= @restaurant.category %><br/>
-	<strong>Ratings: </strong> <%= @restaurant.rating %><br/>
-</div>
+<p>
+	<div class="well">
+		<strong>Contact No: </strong> <%= @restaurant.phno %><br/>
+		<strong>Ratings: </strong> <%= @restaurant.rating %><br/>
+	</div>
 </p>
 </div>
-<%= link_to '<button type="button" class="btn btn-primary">Update</button>'.html_safe, edit_restaurant_path %>
-<%= link_to '<button type="button" class="btn btn-danger">Remove</button>'.html_safe, restaurant_path, method: :delete %>
+
+<div class="menu">
+	<h3> Menu </h3>
+	<div class ="pull-xs-left">
+	<ul class="list-group container-meal">
+		<% @restaurant.meals.each do |meal|%>
+		<li class="list-group-item">
+			<img src="<%=meal.image%>" alt="" width="80" height="65" class="pull-xs-left">
+			<div style="height: 85px; padding: 15px 15px;">
+				<span class="pull-xs-left">&nbsp; &nbsp;</span>
+
+			<%=meal.name%>
+
+			<span class="pull-xs-left">
+				<% if current_user&.admin? %>
+				<span><%= link_to '<button type="button" class="btn btn-primary">Update</button>'.html_safe, edit_restaurant_meal_path(@restaurant, meal), class:"fa fa-pencil" %></span>
+				<span><%= link_to '<button type="button" class="btn btn-danger">Remove</button>'.html_safe, restaurant_meal_path(@restaurant, meal), method: :delete, data: { confirm: "Delete?" }, class:"fa fa-trash-o"  %></span>
+				<% end %>
+			</span>
+		</div>
+		</li>
+	</ul>
+	<% end %> 
+
+</div>
+	<% if current_user&.admin? %>
+		<%= link_to '<button type="button" class="btn btn-primary">Update</button>'.html_safe, edit_restaurant_path %>
+		<%= link_to '<button type="button" class="btn btn-danger">Remove</button>'.html_safe, restaurant_path, method: :delete %>
+		<%= link_to "Add Meal", new_restaurant_meal_path(@restaurant), class:"btn btn-primary" %>
+	<% end %>
+
 </div>
