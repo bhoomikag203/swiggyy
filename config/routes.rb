@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'orders/new'
+
 	root 'restaurants#index'
 	devise_for :users, controllers: { omniauth_callbacks: 'omniauth' }
 	resources :restaurants do
